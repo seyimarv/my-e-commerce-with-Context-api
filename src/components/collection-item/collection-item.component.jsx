@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { connect } from 'react-redux';
+import { CartContext } from '../../providers/cart/Cart.provider'
 
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item }) => {
   const { name, price, imageUrl } = item;
+  const { addItem } = useContext(CartContext)
 
   return (
     <div className='collection-item'>
